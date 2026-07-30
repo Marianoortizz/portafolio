@@ -1,0 +1,44 @@
+@use 'variables' as v;
+
+@mixin flex($justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin glow-text($color: v.$accent, $strength: 8px) {
+  color: $color;
+  text-shadow: 0 0 $strength rgba($color, 0.55);
+}
+
+@mixin panel {
+  background: v.$bg-panel;
+  border: 1px solid v.$border;
+  border-radius: v.$radius-md;
+}
+
+@mixin respond($bp) {
+  @if $bp == sm {
+    @media (max-width: v.$bp-sm) { @content; }
+  } @else if $bp == md {
+    @media (max-width: v.$bp-md) { @content; }
+  } @else if $bp == lg {
+    @media (max-width: v.$bp-lg) { @content; }
+  }
+}
+
+@mixin underline-hover($color: v.$accent) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background: $color;
+    transition: width 0.25s ease;
+  }
+  &:hover::after { width: 100%; }
+}

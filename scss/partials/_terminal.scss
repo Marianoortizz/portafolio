@@ -1,0 +1,131 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'sass:color';
+
+.hero {
+  padding: v.$space-6 0 v.$space-5;
+  @include m.flex(space-between, center, v.$space-5);
+
+  @include m.respond(lg) {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+.hero__text {
+  flex: 1 1 480px;
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    @include m.glow-text(v.$accent, 10px);
+    line-height: 1.15;
+  }
+
+  .hero__headline {
+    color: v.$text-dim;
+    font-size: 1.05rem;
+    margin-bottom: v.$space-3;
+  }
+
+  .hero__location {
+    font-family: v.$font-mono;
+    font-size: 0.85rem;
+    color: v.$text-dim;
+    margin-bottom: v.$space-4;
+
+    &::before { content: '📍 '; }
+  }
+}
+
+.hero__actions {
+  @include m.flex(flex-start, center, v.$space-2);
+  flex-wrap: wrap;
+
+  @include m.respond(lg) { justify-content: center; }
+}
+
+// ===== Botones estilo terminal =====
+.btn-term {
+  font-family: v.$font-mono;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: v.$radius-sm;
+  border: 1px solid v.$accent;
+  color: v.$accent;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background: v.$accent;
+    color: v.$bg;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-term--solid {
+  background: v.$accent;
+  color: v.$bg;
+
+  &:hover {
+    background: color.adjust(v.$accent, $lightness: 8%);
+    color: v.$bg;
+  }
+}
+
+// ===== Ventana de terminal (signature element) =====
+.terminal-window {
+  flex: 1 1 460px;
+  @include m.panel;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(57, 255, 136, 0.08);
+}
+
+.terminal-window__bar {
+  @include m.flex(flex-start, center, v.$space-1);
+  padding: v.$space-2 v.$space-3;
+  background: v.$bg-alt;
+  border-bottom: 1px solid v.$border;
+
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    &--red { background: v.$danger; }
+    &--amber { background: v.$amber; }
+    &--green { background: v.$accent; }
+  }
+
+  span.path {
+    margin-left: v.$space-2;
+    font-family: v.$font-mono;
+    font-size: 0.78rem;
+    color: v.$text-dim;
+  }
+}
+
+.terminal-window__body {
+  padding: v.$space-3;
+  font-family: v.$font-mono;
+  font-size: 0.88rem;
+  min-height: 220px;
+
+  .line {
+    margin-bottom: v.$space-1;
+    color: v.$text-dim;
+
+    .prompt { color: v.$accent; margin-right: v.$space-1; }
+    .out { color: v.$text; }
+  }
+
+  #typed-output { color: v.$text; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: v.$accent;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}

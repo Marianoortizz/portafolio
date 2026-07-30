@@ -1,0 +1,67 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+footer.site-footer {
+  padding: v.$space-4 0;
+  text-align: center;
+
+  p {
+    font-family: v.$font-mono;
+    font-size: 0.8rem;
+    color: v.$text-dim;
+    margin: 0;
+  }
+
+  .footer__links {
+    @include m.flex(center, center, v.$space-3);
+    margin-bottom: v.$space-2;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: v.$space-4;
+
+  @include m.respond(md) { grid-template-columns: 1fr; }
+}
+
+.contact-info {
+  .contact-info__item {
+    @include m.flex(flex-start, center, v.$space-2);
+    margin-bottom: v.$space-3;
+
+    .contact-info__label {
+      font-family: v.$font-mono;
+      font-size: 0.78rem;
+      color: v.$text-dim;
+      display: block;
+    }
+    .contact-info__value { color: v.$text; font-size: 1rem; }
+  }
+}
+
+.form-control-term {
+  width: 100%;
+  background: v.$bg-alt;
+  border: 1px solid v.$border;
+  border-radius: v.$radius-sm;
+  color: v.$text;
+  font-family: v.$font-body;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: v.$space-2;
+
+  &:focus {
+    outline: none;
+    border-color: v.$accent;
+    box-shadow: 0 0 0 3px v.$accent-soft;
+  }
+}
+
+label.form-label-term {
+  font-family: v.$font-mono;
+  font-size: 0.78rem;
+  color: v.$text-dim;
+  margin-bottom: 0.3rem;
+  display: block;
+}

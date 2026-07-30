@@ -1,0 +1,62 @@
+@use 'variables' as v;
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: v.$bg;
+  color: v.$text;
+  font-family: v.$font-body;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+
+  // fondo tipo "grid" técnico, muy sutil
+  background-image:
+    linear-gradient(rgba(57, 255, 136, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 136, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+h1, h2, h3, h4 {
+  font-family: v.$font-mono;
+  font-weight: 700;
+  margin: 0 0 v.$space-2;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0 0 v.$space-2; color: v.$text; }
+
+a {
+  color: v.$accent;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover { color: lighten(v.$accent, 12%); }
+}
+
+::selection { background: v.$accent-dim; color: v.$bg; }
+
+img { max-width: 100%; display: block; }
+
+.container-narrow {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 v.$space-3;
+}
+
+.eyebrow {
+  font-family: v.$font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: v.$accent;
+
+  &::before { content: '// '; color: v.$text-dim; }
+}
+
+.section {
+  padding: v.$space-6 0;
+  border-bottom: 1px solid v.$border;
+}

@@ -1,0 +1,34 @@
+// ===== Paleta "terminal" =====
+$bg:          #090c0b;
+$bg-alt:      #0f1613;
+$bg-panel:    #0c1210;
+$border:      #1c2b23;
+$text:        #d7fbe3;
+$text-dim:    #6f9483;
+$accent:      #39ff88;
+$accent-dim:  #1f7a4a;
+$accent-soft: rgba(57, 255, 136, 0.12);
+$danger:      #ff5f5f;
+$amber:       #ffb454;
+
+// ===== Tipografía =====
+$font-mono:   'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+$font-body:   'IBM Plex Mono', ui-monospace, monospace;
+
+// ===== Espaciado =====
+$space-1: 0.4rem;
+$space-2: 0.8rem;
+$space-3: 1.6rem;
+$space-4: 2.4rem;
+$space-5: 4rem;
+$space-6: 6rem;
+
+// ===== Bordes / radios =====
+$radius-sm: 4px;
+$radius-md: 8px;
+
+// ===== Breakpoints =====
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;

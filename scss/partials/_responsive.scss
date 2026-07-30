@@ -1,0 +1,12 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+@include m.respond(md) {
+  .section { padding: v.$space-5 0; }
+  .terminal-window__body { font-size: 0.8rem; }
+}
+
+@include m.respond(sm) {
+  h1 { font-size: 1.8rem !important; }
+  .container-narrow { padding: 0 v.$space-2; }
+}
