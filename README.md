@@ -53,4 +53,4 @@ HTML semántico, SCSS (arquitectura de partials) y Bootstrap.
 4. Desplegar en Vercel o Netlify.
 5. Pegar acá abajo el link del deploy:
 
-   **Deploy:** _(agregar link de Vercel/Netlify acá)_
+   **Deploy:** https://mfoservicies.netlify.app
